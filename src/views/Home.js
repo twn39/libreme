@@ -1,7 +1,16 @@
 export default {
   data() {
     return {
-      keyword: ""
+      keyword: "",
+      sites: {
+        Github: "https://github.com/search?q=",
+        MDN: "https://developer.mozilla.org/zh-CN/search?q=",
+        "Stack Overflow": "https://stackoverflow.com/search?q=",
+        Google: "https://www.google.com/search?q=",
+        Bing: "https://cn.bing.com/search?q=",
+        DuckDuckGo: "https://duckduckgo.com/?q=",
+        Wikipedia: "https://zh.wikipedia.org/wiki/"
+      }
     };
   },
 
@@ -12,22 +21,17 @@ export default {
   },
 
   render() {
+    let sites = [];
+    Object.keys(this.sites).forEach(key => {
+      sites.push(<a href={this.sites[key] + this.keyword} target="_blank">{key}</a>);
+    });
     return (
-      <div class="home">
-          <div>
-              <input type="text" onKeyup={this.change} />
+      <div class="search-box">
+        <div class="search-input">
+          <input type="text" onKeyup={this.change} placeholder="Search" />
+        </div>
 
-          </div>
-
-          <div>
-              <a href={"https://github.com/search?q=" + this.keyword} target="_blank">Github</a>
-              <a href={"https://developer.mozilla.org/zh-CN/search?q=" + this.keyword} target="_blank">MDN</a>
-              <a href={"https://stackoverflow.com/search?q="+this.keyword} target="_blank">Stack Overflow</a>
-              <a href={"https://www.google.com/search?q="+ this.keyword} target="_blank">Google</a>
-              <a href={"https://cn.bing.com/search?q="+ this.keyword} target="_blank">Bing</a>
-              <a href={"https://duckduckgo.com/?q="+this.keyword} target="_blank">DuckDuckGo</a>
-              <a href={"https://zh.wikipedia.org/wiki/"+this.keyword}>Wikipedia</a>
-          </div>
+        <div class="sites">{sites}</div>
       </div>
     );
   }

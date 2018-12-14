@@ -1,0 +1,37 @@
+#app
+  display flex
+  flex-direction row
+  min-height 100vh
+
+.sidebar
+  display flex
+  flex 1
+
+.main
+  display flex
+  flex 16
+  .search-box
+    display flex
+    justify-content center
+    align-items center
+    width 100%
+    flex-direction column
+    .search-input
+      margin-bottom 20px
+      input
+        text-align center
+        color #444
+        width 500px
+        height 30px
+        padding 3px 20px
+        border 1px solid #dfdfdf
+        border-radius 30px
+  .sites
+    a
+      color #535353
+      text-decoration none
+      padding 3px 10px
+      font-weight bold
+      font-size 18px
+      &:hover
+        color #0078d7

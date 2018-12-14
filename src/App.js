@@ -1,11 +1,17 @@
+import "normalize.css";
+import "../App.css";
+
 export default {
   render() {
     return (
       <div id="app">
-        <div id="nav">
-          <router-link to="/">Home</router-link> |
+        <div class="sidebar">
+          <router-view name="sidebar" />
         </div>
-        <router-view />
+
+        <div class="main">
+          <router-view class="main" />
+        </div>
       </div>
     );
   }
